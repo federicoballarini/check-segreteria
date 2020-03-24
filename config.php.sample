@@ -1,0 +1,38 @@
+<?php
+  
+  /* phone config */
+  
+  $phones = array();
+  $retry = 3;
+  
+  $phones[0] = "+393334445566";
+  $phones[1] = "+393335556677";
+  
+  
+  /* trunk config */
+  
+  $GLOBALS['trunk'] = "trunkname";
+  $GLOBALS['trunktype'] = "SIP";
+  $GLOBALS['extension'] = "305";
+  $GLOBALS['time'] = "45";
+  $pbxemail = "asterisk@domain.com";
+  
+  
+  /* mail config */
+  
+  $mailhost = "mail.domain.com";
+  $mailport = 993;
+  $mailuser = "username";
+  $mailpass = "password";
+  $mailtype = "imap";
+  $mailssl = true;
+  $mailfolder = "INBOX";
+  
+  
+  /* files config */
+  
+  $path = "/your/path/to/project/folder/";
+  $GLOBALS['countername'] = $path . "counter.txt";
+  $GLOBALS['logfile'] = $path. "log.txt";
+  
+?>
