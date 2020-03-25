@@ -27,7 +27,9 @@
     
   } else {
     
-    resetCounter();
+    if (getCounter() > 0) {
+      resetCounter();
+    }
     
   }
   
@@ -36,7 +38,6 @@
   function makeCall($recipient) {
     
     system('asterisk -rx "channel originate ' . $GLOBALS['trunktype'] . '/' . $GLOBALS['trunk'] . '/' . $recipient . ' Application Dial Local/' . $GLOBALS['extension'] . '@from-internal/n,,S(' . $GLOBALS['time'] . ')"');
-    
     writeLog("CALLED $recipient");
     
   }
@@ -58,7 +59,10 @@
   function getCounter() {
     
     $f = fopen($GLOBALS['countername'],"r");
-    return intval(fread($f, filesize($GLOBALS['countername'])));
+    $n = intval(fread($f, filesize($GLOBALS['countername'])));
+    fclose($f);
+    
+    return $n;
     
   }
   
